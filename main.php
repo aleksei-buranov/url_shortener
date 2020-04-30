@@ -11,7 +11,7 @@ try {
 
 
   //SUBMIT
-  if ($_POST['submit']) {
+  if ($url) {
     $stmt = $pdo->prepare('Select * from short_urls where long_url=:url');
     $stmt->bindParam(":url",$url);
     $stmt->execute();
@@ -20,7 +20,7 @@ try {
       $stmt = $pdo->prepare('Select * from short_urls where hash=:hash');
       $stmt->bindParam(":hash",$rand);
       $stmt->execute();
-      $res = $stmt->fetch;
+      $res = $stmt->fetch();
       if($res){
         echo "Такой хэш уже существует! Попробуйте отправить данные еще раз!";
         exit();
@@ -34,7 +34,7 @@ try {
     else {
       $rand = $res->hash;
     }
-    echo "<strong><a href='?hash=$rand'>Short link</a></strong>";
+    echo "<strong><a href='$rand' target='_blank'>Short link</a></strong>";
   }
 
   //GET HASH
