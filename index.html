@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shortener</title>
+  <title>Simple url shortener by Alexey Buranov</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <form name="formShort">
- <input type="url" required placeholder="Введите ссылку..." autocomplete="off" name="url">
- <input type="submit" name="submit" value="Сократить">
- </form>
-<div id="response"></div>
+<div class="container">
+    <h1 class="title">Hello, put your favorite links here!</h1>
+    <form name="formShort">
+        <input class="url__input" type="url" required placeholder="Введите ссылку..." autocomplete="off" name="url">
+        <input class="btn" type="submit" name="submit" value="Сократить">
+    </form>
+    <div id="response">
+        <span>->Link will be here<-</span>
+    </div>
+</div>
+
  <script src="script.js"></script>
 </body>
 </html>
